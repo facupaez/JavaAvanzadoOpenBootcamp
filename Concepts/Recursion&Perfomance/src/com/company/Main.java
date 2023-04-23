@@ -10,6 +10,9 @@ import java.util.stream.IntStream;
  * Existen dos tipos de recursividad: en cola y en cabeza.
  * Tail Recursion: cuando invocamos a la función al final del cuerpo de otra función.
  * Head Recursion: cuando invocamos a la función al principio del cuerpo de otra función.
+ *
+ * Los tiempos de cada función varían, deberemos ver que nos conviene más a la hora de ejecturar funciones.
+ * Mientras mejor usemos nuestras funciones mejor sera la perfomance del sistema.
  */
 public class Main {
 
@@ -22,6 +25,8 @@ public class Main {
         System.out.println("Factorial es: " + factorial(5));
         System.out.println("Factorial recursiva es: " + factorialRecursivo(5));
         System.out.println("Factorial funcional es: " + factorialFuncional(5));
+
+
     }
 
     // función iterativa: dado num, suma desde 0 todos los consecutivos hasta num.
