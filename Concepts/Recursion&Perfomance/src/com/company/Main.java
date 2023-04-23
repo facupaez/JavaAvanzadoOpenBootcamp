@@ -1,6 +1,8 @@
 package com.company;
 
 
+import java.util.stream.IntStream;
+
 /**
  * @author Facu Paez.
  * Tema: Recursividad.
@@ -15,6 +17,7 @@ public class Main {
 
         System.out.println("Sumatoria es: " + suma(5));
         System.out.println("Sumatoria recursiva es: " + sumaRecursiva(5));
+        System.out.println("Sumatoria funcional es: " + sumaFuncional(5));
     }
 
     // función iterativa: dado num, suma desde 0 todos los consecutivos hasta num.
@@ -33,5 +36,11 @@ public class Main {
         if (num == 1) return 1;
 
         return num + sumaRecursiva(num - 1);
+    }
+
+    // recursividad funcional: dado num, suma desde 0 todos los consecutivos hasta num.
+    public static int sumaFuncional(int num){
+        return IntStream.rangeClosed(1, num)
+                .reduce(0, (a, b) -> a + b);
     }
 }
