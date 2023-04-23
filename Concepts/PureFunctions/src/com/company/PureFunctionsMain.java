@@ -9,7 +9,7 @@ package com.company;
  * Son fáciles de entender pero difíciles de implementar.
  * @version 1.0
  */
-public class Main {
+public class PureFunctionsMain {
 
     private static int counter = 0;
 
