@@ -18,33 +18,10 @@ public class Main {
         System.out.println("Sumatoria es: " + suma(5));
         System.out.println("Sumatoria recursiva es: " + sumaRecursiva(5));
         System.out.println("Sumatoria funcional es: " + sumaFuncional(5));
+
         System.out.println("Factorial es: " + factorial(5));
-        System.out.println("Sumatoria recursiva es: " + factorialRecursivo(5));
-        System.out.println("Sumatoria funcional es: " + factorialFuncional(5));
-    }
-
-    // calculando factorial iterativo
-    private static int factorial(int num) {
-        int result = 1;
-
-        for (int i = 1; i <= num; i++) {
-            result *= i;
-        }
-
-        return result;
-    }
-
-    // calculando factorial recursivo
-    private static int factorialRecursivo(int num) {
-        if (num == 0) return 1;
-
-        return num * factorialRecursivo(num - 1);
-    }
-
-    // calculando factorial recursivo funcional
-    private static int factorialFuncional(int num) {
-        return IntStream.rangeClosed(1, num)
-                .reduce(1, (a, b) -> a * b);
+        System.out.println("Factorial recursiva es: " + factorialRecursivo(5));
+        System.out.println("Factorial funcional es: " + factorialFuncional(5));
     }
 
     // función iterativa: dado num, suma desde 0 todos los consecutivos hasta num.
@@ -69,5 +46,29 @@ public class Main {
     public static int sumaFuncional(int num) {
         return IntStream.rangeClosed(1, num)
                 .reduce(0, (a, b) -> a + b);
+    }
+
+    // calculando factorial iterativo
+    private static int factorial(int num) {
+        int result = 1;
+
+        for (int i = 1; i <= num; i++) {
+            result *= i;
+        }
+
+        return result;
+    }
+
+    // calculando factorial recursivo
+    private static int factorialRecursivo(int num) {
+        if (num == 0) return 1;
+
+        return num * factorialRecursivo(num - 1);
+    }
+
+    // calculando factorial recursivo funcional
+    private static int factorialFuncional(int num) {
+        return IntStream.rangeClosed(1, num)
+                .reduce(1, (a, b) -> a * b);
     }
 }
