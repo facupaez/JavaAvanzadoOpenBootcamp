@@ -24,9 +24,9 @@ public class DemoController {
 
     public DemoController(BootcamperService bootcamperService) {
         this.bootcamperService = bootcamperService;
-        this.bootcamperService.add(new Bootcamper("uno"));
-        this.bootcamperService.add(new Bootcamper("dos"));
-        this.bootcamperService.add(new Bootcamper("tres"));
+        this.bootcamperService.add(new Bootcamper("Juan"));
+        this.bootcamperService.add(new Bootcamper("Pedro"));
+        this.bootcamperService.add(new Bootcamper("Martín"));
     }
 
     @GET
