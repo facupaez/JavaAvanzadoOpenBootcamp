@@ -3,6 +3,8 @@ package com.example.CleanArchitecture.services;
 import com.example.CleanArchitecture.entities.User;
 import com.example.CleanArchitecture.entities.UsersBuilder;
 import com.example.CleanArchitecture.repositories.UsersDB;
+import com.example.CleanArchitecture.repositories.UsersDBFactory;
+import com.example.CleanArchitecture.repositories.UsersDBFile;
 import com.example.CleanArchitecture.repositories.UsersDBMemory;
 import org.springframework.stereotype.Service;
 
@@ -10,11 +12,9 @@ import java.util.ArrayList;
 
 @Service
 public class UsersService {
-    UsersDB usersDB = new UsersDBMemory();
-
-    public UsersService(UsersDB usersDB) {
-        this.usersDB = usersDB;
-    }
+    //UsersDB usersDB = new UsersDBMemory();
+    UsersDBFactory usersDBFactory = new UsersDBFactory("bbddFile");
+    UsersDB usersDB = usersDBFactory.getDatabaseInstance();
 
     public UsersService() {
     }
