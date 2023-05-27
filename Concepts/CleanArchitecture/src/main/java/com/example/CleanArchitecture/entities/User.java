@@ -1,18 +1,18 @@
 package com.example.CleanArchitecture.entities;
 
 public class User {
-    public String userName;
+    public String username;
     public String name;
-    public String lastName;
+    public String lastname;
     public String email;
     public int levelAccess;
 
     @Override
     public String toString() {
         return "User{" +
-                "userName='" + userName + '\'' +
+                "userName='" + username + '\'' +
                 ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", lastName='" + lastname + '\'' +
                 ", email='" + email + '\'' +
                 ", levelAccess=" + levelAccess +
                 '}';

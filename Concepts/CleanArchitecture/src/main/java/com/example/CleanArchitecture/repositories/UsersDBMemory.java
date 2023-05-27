@@ -16,7 +16,7 @@ public class UsersDBMemory extends UsersDB{
     public User getUser(User user) {
 
         for (User usuarioActual : listUsers()) {
-            if (usuarioActual.userName.equalsIgnoreCase(user.userName)) {
+            if (usuarioActual.username.equals(user.username)) {
                 return usuarioActual;
             }
         }
@@ -37,7 +37,7 @@ public class UsersDBMemory extends UsersDB{
     @Override
     public void deleteUser(User user) {
         for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).userName.equalsIgnoreCase(user.userName)) {
+            if (users.get(i).username.equals(user.username)) {
                 users.remove(i);
                 incrementDeletes();
             }

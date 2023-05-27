@@ -41,7 +41,7 @@ public class UsersController {
     public Response addUser(User user){
         usersService.addUser(user);
 
-        return Response.created(URI.create("/users" + user.userName)).build();
+        return Response.created(URI.create("/users" + user.username)).build();
     }
 
     // eliminar usuario

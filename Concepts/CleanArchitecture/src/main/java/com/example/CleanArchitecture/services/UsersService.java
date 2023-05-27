@@ -1,6 +1,7 @@
 package com.example.CleanArchitecture.services;
 
 import com.example.CleanArchitecture.entities.User;
+import com.example.CleanArchitecture.entities.UsersBuilder;
 import com.example.CleanArchitecture.repositories.UsersDB;
 import com.example.CleanArchitecture.repositories.UsersDBMemory;
 import org.springframework.stereotype.Service;
@@ -11,11 +12,12 @@ import java.util.ArrayList;
 public class UsersService {
     UsersDB usersDB = new UsersDBMemory();
 
-    public UsersService(UsersDB usersDB){
+    public UsersService(UsersDB usersDB) {
         this.usersDB = usersDB;
     }
 
-    public UsersService(){}
+    public UsersService() {
+    }
 
     public ArrayList<User> listUsers() {
         return usersDB.listUsers();
@@ -23,7 +25,7 @@ public class UsersService {
 
     public User getUser(String username) {
         User user = new User();
-        user.userName = username;
+        user.username = username;
 
         return usersDB.getUser(user);
     }
@@ -33,13 +35,26 @@ public class UsersService {
             return;
         }
 
-        usersDB.addUser(user);
+        User filterUser = addFilteredUser(user);
+
+        usersDB.addUser(filterUser);
     }
 
     public void deleteUser(String username) {
         User user = new User();
-        user.userName = username;
+        user.username = username;
 
         usersDB.deleteUser(user);
+    }
+
+    private User addFilteredUser(User user) {
+        UsersBuilder usersBuilder = new UsersBuilder(user.username);
+
+        return usersBuilder
+                .withName(user.name.length() > 0 ? user.name : "Sin nombre")
+                .withLastname(user.lastname.length() > 0 ? user.lastname : "Sin apellido")
+                .withEmail(user.email.length() > 0 ? user.email : "Sin email")
+                .withLevelAccess(user.levelAccess > 0 ? user.levelAccess : 0)
+                .build();
     }
 }

@@ -23,9 +23,9 @@ public class UsersDBFile extends UsersDB{
                 String []parts = actualUser.split(",");
 
                 User user = new User();
-                user.userName = parts[0];
+                user.username = parts[0];
                 user.name = parts[1];
-                user.lastName = parts[2];
+                user.lastname = parts[2];
                 user.email = parts[3];
                 user.levelAccess = Integer.parseInt(parts[4]);
 
@@ -46,7 +46,7 @@ public class UsersDBFile extends UsersDB{
         ArrayList<User> users = listUsers();
 
         for (User usuarioActual : users) {
-            if (usuarioActual.userName.equalsIgnoreCase(user.userName)) {
+            if (usuarioActual.username.equalsIgnoreCase(user.username)) {
                 return usuarioActual;
             }
         }
@@ -68,9 +68,9 @@ public class UsersDBFile extends UsersDB{
     }
 
     private String separateUserByCommas(User user) {
-        return user.userName + ","
+        return user.username + ","
                 + user.name + ","
-                + user.lastName + ","
+                + user.lastname + ","
                 + user.email + ","
                 + user.levelAccess;
     }
@@ -80,7 +80,7 @@ public class UsersDBFile extends UsersDB{
         ArrayList<User> users = listUsers();
 
         for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).userName.equalsIgnoreCase(user.userName)) {
+            if (users.get(i).username.equalsIgnoreCase(user.username)) {
                 users.remove(i);
             }
         }
